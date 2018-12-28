@@ -1,17 +1,28 @@
 ### Instruções de instalação
 
-- Clonar o repositório
+1. Clonar o repositório
 
-`$ git clone github.com/williamfn.atividades.git`
+    `$ git clone git@github.com:williamfn/atividades.git`
 
-- Rodar o composer
+2. Rodar o composer
 
-`$ composer install`
+    `$ composer install`
 
-- Rodar o NPM
+3. Rodar o NPM
 
-`$ npm install`
+```
+    $ npm install
+    $ npm run production
+```
 
-- Servir a aplicação usando o navegador interno do Laravel
+4. Executar o script de banco de dados que se encontra na pasta src na raíz do projeto
 
-`$ php artisan serve`
+5. Configurar o arquivo .env com os parâmetros do seu banco de dados: nome do database criado, usuário e senha
+
+6. Servir a aplicação usando o navegador interno do Laravel
+
+    `$ php artisan serve`
+
+7. Acessar a aplicação em
+
+    http://localhost:8000
