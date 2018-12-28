@@ -4,26 +4,28 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class Atividade extends Model
 {
-    public function getDataInicioAttribute($value)
-    {
-        return Carbon::parse($value)->format('d/m/Y');
-    }
+    protected $dates = ['data_inicio', 'data_fim'];
 
-    public function getDataFimAttribute($value)
+    public static function getListaFiltrados($status, $situacao)
     {
-        return Carbon::parse($value)->format('d/m/Y');
-    }
+        $query = DB::table('atividades');
 
-    public function getSituacaoAttribute($value)
-    {
-        if ($value == '1') {
-            return 'Ativo';
-        } else {
-            return 'Inativo';
+        $query->join('status', 'atividades.status', 'status.id');
+
+        $query->select(DB::raw('if (atividades.situacao = "A", "Ativo", "Inativo") as situacao_descricao, atividades.*, status.status as status, status.id as status_id'));
+
+        if (!empty($status)) {
+            $query->where('atividades.status', $status);
         }
-    }
 
+        if (!empty($situacao)) {
+            $query->where('atividades.situacao', $situacao);
+        }
+
+        return $query->get();
+    }
 }

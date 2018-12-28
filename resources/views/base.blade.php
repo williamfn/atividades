@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,13 +15,11 @@
                 <h1>Lista de Atividades Duosystem</h1>
             </div>
 
-            <div>
-                <main class="main">
-                    <div class="main-content">
-                        @yield('content')
-                    </div>
-                </main>
-            </div>
+            <main class="main">
+                <div class="main-content">
+                    @yield('content')
+                </div>
+            </main>
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>

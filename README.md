@@ -15,7 +15,9 @@
     $ npm run production
 ```
 
-4. Executar o script de banco de dados que se encontra na pasta src na raíz do projeto
+4. Executar o script de banco de dados (database.sql) que se encontra na pasta src na raíz do projeto
+
+    `$ mysql -u <usuario> -p <database> < database.sql`
 
 5. Configurar o arquivo .env com os parâmetros do seu banco de dados: nome do database criado, usuário e senha
 

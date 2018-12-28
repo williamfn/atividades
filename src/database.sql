@@ -14,7 +14,7 @@ CREATE TABLE `atividades`.`atividades` (
   `data_inicio` DATE NOT NULL,
   `data_fim` DATE NULL,
   `status` INT NOT NULL,
-  `situacao` TINYINT NOT NULL DEFAULT 1,
+  `situacao` char(1) NOT NULL DEFAULT 'A',
   PRIMARY KEY (`id`),
   INDEX `fk_atividades_status_idx` (`status` ASC),
   CONSTRAINT `fk_atividades_status`
