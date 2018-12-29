@@ -5,9 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Collective\Html\Eloquent\FormAccessible;
 
 class Atividade extends Model
 {
+    use FormAccessible;
+
     protected $dates = ['data_inicio', 'data_fim'];
 
     public static function getListaFiltrados($status, $situacao)
@@ -27,5 +30,15 @@ class Atividade extends Model
         }
 
         return $query->get();
+    }
+
+    public function formDataInicioAttribute($value)
+    {
+        return Carbon::parse($value)->format('d/m/Y');
+    }
+
+    public function formDataFimAttribute($value)
+    {
+        return Carbon::parse($value)->format('d/m/Y');
     }
 }

@@ -1,5 +1,9 @@
 @extends('base')
 
+@section('title')
+    Lista de Atividades Duosystem
+@endsection
+
 @section('content')
 
     <div class="row form-group">

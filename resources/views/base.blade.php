@@ -12,7 +12,7 @@
     <body>
         <div class="container">
             <div class="page-header">
-                <h1>Lista de Atividades Duosystem</h1>
+                <h1>@yield('title')</h1>
             </div>
 
             <main class="main">

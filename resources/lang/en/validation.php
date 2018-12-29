@@ -116,6 +116,13 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'nome' => 'Nome',
+        'descricao' => 'Descrição',
+        'data_inicio' => 'Data Inicial',
+        'data_fim' => 'Data Final',
+        'status' => 'Status',
+        'situacao' => 'Situação',
+    ],
 
 ];
