@@ -57,7 +57,7 @@
                             <td>{{ $atividade->nome }}</td>
                             <td class="col-md-4">{{ $atividade->descricao }}</td>
                             <td>{{ \Carbon\Carbon::parse($atividade->data_inicio)->format('d/m/Y') }}</td>
-                            <td>{{ \Carbon\Carbon::parse($atividade->data_fim)->format('d/m/Y') }}</td>
+                            <td>@if (!empty($atividade->data_fim)) {{ \Carbon\Carbon::parse($atividade->data_fim)->format('d/m/Y') }}@endif</td>
                             <td>{{ $atividade->status }}</td>
                             <td>{{ $atividade->situacao_descricao }}</td>
                             @if ($concluido) @php $class = 'success'; $label = 'Visualizar' @endphp @endif

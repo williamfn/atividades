@@ -1,4 +1,4 @@
-CREATE SCHEMA `atividades` DEFAULT CHARACTER SET latin1 ;
+CREATE DATABASE IF NOT EXISTS `atividades` DEFAULT CHARACTER SET latin1 ;
 
 
 CREATE TABLE `atividades`.`status` (
