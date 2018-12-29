@@ -48,7 +48,7 @@
                 @if (count($atividades) > 0)
                     @foreach ($atividades as $atividade)
                         @php
-                            $concluido = ($atividade->status_id == 4);
+                            $concluido = ($atividade->status_id == env('STATUS_CONCLUIDO_ID'));
                             $class = 'info';
                             $label = 'Editar'
                         @endphp
@@ -72,6 +72,7 @@
         <div class="row text-center">
             <a href="/atividades/edicao" class="btn btn-info">Adicionar atividade</a>
         </div>
+        <div class="form-group"></div>
     </div>
 
 @endsection

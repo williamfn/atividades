@@ -28,7 +28,7 @@ class SaveAtividade extends FormRequest
             'descricao' => 'required|max:600',
             'data_inicio' => 'required|date_format:d/m/Y',
             'data_fim' => 'required_if:status,4|nullable|date_format:d/m/Y',
-            'status' => 'nullable|in:1,2,3,4',
+            'status' => 'in:1,2,3,4',
             'situacao' => 'nullable|in:A,I'
         ];
     }

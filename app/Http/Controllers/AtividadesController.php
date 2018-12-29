@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class AtividadesController extends Controller
 {
+    private $statusConcluido;
+
+    public function __construct()
+    {
+        $this->statusConcluido = env('STATUS_CONCLUIDO_ID');
+    }
+
     public function index(Request $request)
     {
         $data['statusSelecionado'] = $request->input('status');
@@ -33,7 +40,7 @@ class AtividadesController extends Controller
 
             $data['atividade'] = Atividade::find($idAtividade);
 
-            if ($data['atividade']->status == 4) {
+            if ($data['atividade']->status == $this->statusConcluido) {
                 $data['desabilitado'] = 'readonly';
             }
         }
@@ -48,6 +55,20 @@ class AtividadesController extends Controller
 
     public function save(SaveAtividade $request)
     {
-        dd($request->all());
+        $input = $request->all();
+
+        if (!empty($input['id'])) {
+            $atividade = Atividade::find($input['id']);
+
+            // Validação back-end para que não seja possível salvar atividades já concluídas
+            if ($atividade->status != $this->statusConcluido) {
+                $atividade->update($input);
+            }
+
+            return redirect('atividades');
+        }
+
+        Atividade::create($input);
+        return redirect('atividades');
     }
 }

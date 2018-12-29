@@ -21,10 +21,14 @@
 
 5. Configurar o arquivo .env com os parâmetros do seu banco de dados: nome do database criado, usuário e senha
 
-6. Servir a aplicação usando o navegador interno do Laravel
+6. Adicionar o seguinte trecho ao final do arquivo .env. Essa configuração é o id de status das atividades concluídas.
+
+    `STATUS_CONCLUIDO_ID=4`
+
+7. Servir a aplicação usando o navegador interno do Laravel
 
     `$ php artisan serve`
 
-7. Acessar a aplicação em
+8. Acessar a aplicação em
 
     http://localhost:8000
